@@ -1,4 +1,4 @@
-public class Simulation {
+xpublic class Simulation {
 
     public static void main(String [] args) {
 	// Skapar ett TrafficSystem

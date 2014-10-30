@@ -8,7 +8,7 @@ public class Car {
 	this.dest = dest;
     }
     public String toString() {
-	return bornTime + " " + dest;
+	return "\n Arrived to the simulation at time: "+bornTime + ". And is heading towards D" + dest;
     }
     
 }

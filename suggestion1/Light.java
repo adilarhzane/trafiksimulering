@@ -23,6 +23,6 @@ public class Light {
 	}else {return false;}
     }
 
-    public String  toString()  {return period + " " + time + " " + green + ".";}
+    public String  toString()  {return "\n The clock period of the traffic light is: "+period + ".\n And the Light is green when timer is less than: " + green + " seconds.";}
 	
 }
