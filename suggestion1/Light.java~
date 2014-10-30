@@ -11,8 +11,11 @@ public class Light {
 
     public boolean isGreen()   {
 	// Returnerar true om time<green, annars false
+	if(time<green){
+	    return true;
+	}else {return false;}
     }
 
-    public String  toString()  {... }
+    public String  toString()  {return period + " " + time + " " + green + ".";}
 	
 }
