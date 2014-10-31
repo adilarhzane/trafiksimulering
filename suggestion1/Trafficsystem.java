@@ -1,24 +1,27 @@
+import java.util.ArrayList;
+
 public class TrafficSystem {
     // Definierar de vägar och signaler som ingår i det 
     // system som skall studeras.
     // Samlar statistik
     
     // Attribut som beskriver beståndsdelarna i systemet
-    private Lane  r0;
-    private Lane  r1;
-    private Lane  r2;
-    private Light s1;
-    private Light s2;
+    private Lane  r0 = new Lane(30);
+    private Lane  r1 = new Lane(10);
+    private Lane  r2 = new Lane(10);
+    private Light s1 = new Light(20, 11);
+    private Light s2 = new Light(10, 6);
 
     // Diverse attribut för simuleringsparametrar (ankomstintensiteter,
     // destinationer...)
 
     // Diverse attribut för statistiksamling
-    ....    
+    public ArrayList<Car> D1 = new ArrayList();
+    public ArrayList<Car> D2 = new ArrayList();
     
     private int time = 0;
 
-    public TrafficSystem() {...}
+    public TrafficSystem() {}
 
     public readParameters() {
 	// Läser in parametrar för simuleringen
@@ -32,6 +35,26 @@ public class TrafficSystem {
     public void step() {
 	// Stega systemet ett tidssteg m h a komponenternas step-metoder
 	// Skapa bilar, lägg in och ta ur på de olika Lane-kompenenterna
+	s1.step();
+	s2.step();
+
+	if(s2.isGreen() && r2.firstCar() != null){
+	    D2.add(r2.getFirst());
+	}
+	r2.step();
+
+	if(s1.isGreen() && r1.firstCar() !=null){
+	    D1.add(r1.getFirst());
+	}
+	r1.step();
+
+	if(r0.firstCar().returnDest() == 2){
+	    r2.putLast(r0.getFirst());
+	}
+	else if(r0.firstCar().returnDest() == 1){
+	    r1.putLast(r0.getFirst());
+	}
+	r0.step();
     }
 
     public void printStatistics() {
@@ -41,6 +64,7 @@ public class TrafficSystem {
     public void print() {
 	// Skriv ut en grafisk representation av kösituationen
 	// med hjälp av klassernas toString-metoder
+	System.out.println(r1.toString()+r0.toString()+"\n"+r2.toString());
     }
 
 }

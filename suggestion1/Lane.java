@@ -16,7 +16,7 @@ public class Lane {
 	// Stega fram alla fordon (utom det på plats 0) ett steg 
         // (om det går). (Fordonet på plats 0 tas bort utifrån 
 	// mm h a metoden nedan.)
-	for(int i = 1;i<theLane.length; i++){
+	for(int i = 1; i<theLane.length; i++){
 	    if(theLane[i-1] == null){
 		theLane[i-1]=theLane[i];
 		theLane[i] = null;
@@ -51,13 +51,13 @@ public class Lane {
     }
 
     public String toString() {
-	String s = "[";
+	String s = "<";
 	for(int i=0;i<theLane.length; i++){
 	    if(theLane[i] == null){
-		s+="  ";
-	    }else{s+="C";}
+		s+="-";
+	    }else{s+="O";}
 	}
-	s+="]";
+	s+="<";
 	return s;
     }
 
