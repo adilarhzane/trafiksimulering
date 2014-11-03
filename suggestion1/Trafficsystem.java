@@ -1,16 +1,17 @@
-import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
 
-public class TrafficSystem {
+public class Trafficsystem {
     // Definierar de vägar och signaler som ingår i det 
     // system som skall studeras.
     // Samlar statistik
     
     // Attribut som beskriver beståndsdelarna i systemet
-    private Lane  r0 = new Lane(30);
-    private Lane  r1 = new Lane(10);
-    private Lane  r2 = new Lane(10);
-    private Light s1 = new Light(20, 11);
-    private Light s2 = new Light(10, 6);
+    private Lane  r0;
+    private Lane  r1;
+    private Lane  r2;
+    private Light s1;
+    private Light s2;
 
     // Diverse attribut för simuleringsparametrar (ankomstintensiteter,
     // destinationer...)
@@ -23,13 +24,20 @@ public class TrafficSystem {
 
     public TrafficSystem() {}
 
-    public readParameters() {
+    public ReadInput readParameters() {
 	// Läser in parametrar för simuleringen
 	// Metoden kan läsa från terminalfönster, dialogrutor
 	// eller från en parameterfil. Det sista alternativet
 	// är att föredra vid uttestning av programmet eftersom
 	// man inte då behöver mata in värdena vid varje körning.
         // Standardklassen Properties är användbar för detta. 
+
+	//Terminal-input metoden
+	ReadInput ri = new ReadInput();
+	return ri;
+	
+
+
     }
 
     public void step() {
