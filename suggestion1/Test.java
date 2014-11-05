@@ -3,33 +3,13 @@ public class Test {
     public static void main(String [] args) {
 	// Skapar ett TrafficSystem
 	// Utför stegningen, anropar utskriftsmetoder
-	Lane lan = new Lane(10);
-	Light light = new Light(8, 4);
-	Car car = new Car(1, 1);
-	lan.putLast(car);
-	lan.step();
-	light.step();
-	lan.step();
-	light.step();
-	lan.step();
-	light.step();
-	lan.step();
-	light.step();
-	lan.step();
-	light.step();
-	lan.step();
-	light.step();
-	lan.step();
-	light.step();
-	System.out.println(car.toString());
-	System.out.println(light.toString());
 	
-	if(light.isGreen()){
-	    System.out.println("\n Traffic light is green");
+       	Trafficsystem s = new Trafficsystem(30, 10, 10, 6, 3);
+	for(int i = 0; i<100;i++){
+	    s.step();
+	    s.print();
 	}
-	String s = lan.toString();
-	System.out.println(lan.toString());
-      
+	s.printStatistics();
     }
 }
 

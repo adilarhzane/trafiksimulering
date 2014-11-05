@@ -14,7 +14,7 @@ public class Car {
 	return bornTime;
     }
     public String toString() {
-	return "\n Arrived to the simulation at time: "+bornTime + ". And is heading towards D" + dest;
+	return "(:"+bornTime+"Towards D"+dest+":]";
     }
     
 }

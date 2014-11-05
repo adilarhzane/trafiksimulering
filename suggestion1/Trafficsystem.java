@@ -17,8 +17,8 @@ public class Trafficsystem {
     private int intensity;
     private int time = 0;
     //variables for statistics
-    private int longestTime = 0;
-    private int averageTime = 0;
+    private int longestTime;
+    private int averageTime;
    
 
     // Diverse attribut för simuleringsparametrar (ankomstintensiteter,
@@ -40,6 +40,8 @@ public class Trafficsystem {
 	this.s1 = new Light(period, greenTime);
 	this.s2 = new Light(period/2, greenTime/3);
 	this.intensity = intensity;
+	this.longestTime = 0;
+	this.averageTime = 0;
     }
 
     public ReadString readParameters() {
@@ -59,7 +61,7 @@ public class Trafficsystem {
 	Random rand = new Random();
 	int randInt = rand.nextInt(intensity);
 	if (randInt == 0){
-	    Car newCar = new Car(time, rand.nextInt(1)+1);
+	    Car newCar = new Car(time, rand.nextInt(2)+1);
 	    r0.putLast(newCar);
 	}
     }
@@ -71,24 +73,28 @@ public class Trafficsystem {
 	s2.step();
 
 	if(s2.isGreen() && r2.firstCar() != null){
-	    Car movedOn = r2.getFirst();
-	    D2.add(movedOn);
-	    if((time - movedOn.return_bornTime()) > longestTime){
-		longestTime = time - movedOn.return_bornTime();
-	    }
+	     if((time - r2.firstCar().return_bornTime()) > longestTime){
+		 longestTime = (time - r2.firstCar().return_bornTime());
+	    } 
+	     averageTime = averageTime + (time -(r2.firstCar().return_bornTime()));
+	     D2.add(r2.getFirst());
 	    
 	}
 	r2.step();
 
 	if(s1.isGreen() && r1.firstCar() !=null){
+	    if((time - r1.firstCar().return_bornTime()) > longestTime){
+		longestTime = (time - r1.firstCar().return_bornTime());
+	    }
+	    averageTime = averageTime + (time -(r1.firstCar().return_bornTime()));
 	    D1.add(r1.getFirst());
 	}
 	r1.step();
 
-	if(r0.firstCar().returnDest() == 2){
+	if(r0.firstCar() != null && r0.firstCar().returnDest() == 2){
 	    r2.putLast(r0.getFirst());
 	}
-	else if(r0.firstCar().returnDest() == 1){
+	else if(r0.firstCar() != null && r0.firstCar().returnDest() == 1){
 	    r1.putLast(r0.getFirst());
 	}
 	r0.step();
@@ -98,6 +104,17 @@ public class Trafficsystem {
 
     public void printStatistics() {
 	// Skriv statistiken samlad så här långt
+	System.out.println("this is statistic");
+	System.out.println("Cars that went straight: ");
+	for(Car c: D1){
+	    System.out.println(c.toString());
+	}
+	System.out.println("Cars that went left: ");
+	for(Car c: D2){
+	    System.out.println(c.toString());
+	}
+	System.out.println("Average time in the simulation: "+averageTime/(D1.size()+D2.size()));
+	System.out.println("car with longest time in the simulation: "+longestTime);
     }
 
     public void print() {
@@ -105,5 +122,4 @@ public class Trafficsystem {
 	// med hjälp av klassernas toString-metoder
 	System.out.println(r1.toString() + r0.toString() + "\n" + r2.toString());
     }
-
 }
