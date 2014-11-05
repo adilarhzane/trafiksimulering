@@ -12,6 +12,11 @@ public class Trafficsystem {
     private Lane  r2;
     private Light s1;
     private Light s2;
+    //intensity is used to randomly put cars into the system
+    //intensity = 3 means a new car is made randomly about every 4 seconds
+    private int intensity;
+    private int time = 0;
+   
 
     // Diverse attribut för simuleringsparametrar (ankomstintensiteter,
     // destinationer...)
@@ -20,11 +25,21 @@ public class Trafficsystem {
     public ArrayList<Car> D1 = new ArrayList();
     public ArrayList<Car> D2 = new ArrayList();
     
-    private int time = 0;
+    //
+   
 
-    public TrafficSystem() {}
+    public Trafficsystem(int r0, int r1, int period, int greenTime,  int intensity) {
+	//lanes
+	this.r0 = new Lane(r0);
+	this.r1 = new Lane(r1);
+	this.r2 = new Lane(r1);
+	//lights
+	this.s1 = new Light(period, greenTime);
+	this.s2 = new Light(period/2, greenTime/2);
+	this.intensity = intensity;
+    }
 
-    public ReadInput readParameters() {
+    public ReadString readParameters() {
 	// Läser in parametrar för simuleringen
 	// Metoden kan läsa från terminalfönster, dialogrutor
 	// eller från en parameterfil. Det sista alternativet
@@ -33,11 +48,18 @@ public class Trafficsystem {
         // Standardklassen Properties är användbar för detta. 
 
 	//Terminal-input metoden
-	ReadInput ri = new ReadInput();
-	return ri;
-	
+	return null;
+    }
+    
 
 
+    public void createCar(){
+	Random rand = new Random();
+	int randInt = rand.nextInt(intensity);
+	if (randInt == 0){
+	    Car newCar = new Car(time, rand.nextInt(1)+1);
+	    r0.putLast(newCar);
+	}
     }
 
     public void step() {
@@ -63,6 +85,8 @@ public class Trafficsystem {
 	    r1.putLast(r0.getFirst());
 	}
 	r0.step();
+	this.createCar();
+	this.time++;
     }
 
     public void printStatistics() {
