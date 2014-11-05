@@ -10,6 +10,9 @@ public class Car {
     public int returnDest(){
 	return dest;
     }
+    public int return_bornTime(){
+	return bornTime;
+    }
     public String toString() {
 	return "\n Arrived to the simulation at time: "+bornTime + ". And is heading towards D" + dest;
     }
