@@ -33,28 +33,31 @@ public class Simulation {
 		    greenTime = Integer.parseInt(scanner.nextLine());
 		    i++;
 		case 4:
-		    System.out.println("Enter the length of the whole road: ");
+		    System.out.println("Enter the length of the runup road: ");
 		    r0 = Integer.parseInt(scanner.nextLine());
 		    i++;
 		case 5:
 		     System.out.println("Enter length of svängfil: ");
 		     r2 = Integer.parseInt(scanner.nextLine());
-		     i++;
+		     r1 = r2;
+		     return;
+		
 	    }	
-	/*
+	
 	
 
 
 	   
-	    r1 = r2;
-	    r0 = r0-r2;
-	*/
+	   
+	
 	
 		}catch (NumberFormatException e){
 		System.out.println("Try entering a number");
 	       
 	    }
+
 	    
 	}
+	
     }
 }
