@@ -22,8 +22,8 @@ public class Trafficsystem {
     // destinationer...)
 
     // Diverse attribut för statistiksamling
-    public ArrayList<Car> D1 = new ArrayList();
-    public ArrayList<Car> D2 = new ArrayList();
+    public ArrayList<Car> D1 = new ArrayList<Car>();
+    public ArrayList<Car> D2 = new ArrayList<Car>();
     
     //
    
@@ -35,7 +35,7 @@ public class Trafficsystem {
 	this.r2 = new Lane(r1);
 	//lights
 	this.s1 = new Light(period, greenTime);
-	this.s2 = new Light(period/2, greenTime/2);
+	this.s2 = new Light(period/2, greenTime/3);
 	this.intensity = intensity;
     }
 
@@ -51,7 +51,6 @@ public class Trafficsystem {
 	return null;
     }
     
-
 
     public void createCar(){
 	Random rand = new Random();
