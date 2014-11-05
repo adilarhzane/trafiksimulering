@@ -28,7 +28,7 @@ public class Test {
 	    System.out.println("\n Traffic light is green");
 	}
 	String s = lan.toString();
-	System.out.println(s);
+	System.out.println(lan.toString());
       
     }
 }

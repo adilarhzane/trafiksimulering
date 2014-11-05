@@ -5,12 +5,12 @@ public class Simulation {
     public static void main(String [] args) {
 	// Skapar ett TrafficSystem
 	// Utför stegningen, anropar utskriftsmetoder
-	int intensity;
-	int period;
-	int greenTime;
-	int r0;
-	int r1;
-	int r2;
+	int intensity = 3;
+	int period = 10;
+	int greenTime = 6;
+	int r0 = 30;
+	int r1 = 10;
+	int r2 = 10;
 	Scanner scanner = new Scanner(System.in);
 	int i = 1;
 	boolean j = true;
@@ -37,10 +37,10 @@ public class Simulation {
 		    r0 = Integer.parseInt(scanner.nextLine());
 		    i++;
 		case 5:
-		     System.out.println("Enter length of svängfil: ");
-		     r2 = Integer.parseInt(scanner.nextLine());
-		     r1 = r2;
-		     return;
+		    System.out.println("Enter length of svängfil: ");
+		    r2 = Integer.parseInt(scanner.nextLine());
+		    r1 = r2;
+		    return;
 		
 	    }	
 	
@@ -58,6 +58,9 @@ public class Simulation {
 
 	    
 	}
+	Trafficsystem s = new Trafficsystem(r0, r1, period, greenTime, intensity);
+
+	
 	
     }
 }

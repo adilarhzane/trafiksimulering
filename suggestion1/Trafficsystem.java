@@ -16,6 +16,9 @@ public class Trafficsystem {
     //intensity = 3 means a new car is made randomly about every 4 seconds
     private int intensity;
     private int time = 0;
+    //variables for statistics
+    private int longestTime = 0;
+    private int averageTime = 0;
    
 
     // Diverse attribut för simuleringsparametrar (ankomstintensiteter,
@@ -68,7 +71,12 @@ public class Trafficsystem {
 	s2.step();
 
 	if(s2.isGreen() && r2.firstCar() != null){
-	    D2.add(r2.getFirst());
+	    Car movedOn = r2.getFirst();
+	    D2.add(movedOn);
+	    if((time - movedOn.return_bornTime()) > longestTime){
+		longestTime = time - movedOn.return_bornTime();
+	    }
+	    
 	}
 	r2.step();
 
@@ -95,7 +103,7 @@ public class Trafficsystem {
     public void print() {
 	// Skriv ut en grafisk representation av kösituationen
 	// med hjälp av klassernas toString-metoder
-	System.out.println(r1.toString()+r0.toString()+"\n"+r2.toString());
+	System.out.println(r1.toString() + r0.toString() + "\n" + r2.toString());
     }
 
 }
