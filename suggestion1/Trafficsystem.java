@@ -113,6 +113,9 @@ public class Trafficsystem {
 	for(Car c: D2){
 	    System.out.println(c.toString());
 	}
+	if(D1.size() == 0 && D2.size() == 0){
+	    System.out.println("no car made it throught the system.");
+	}
 	System.out.println("Average time in the simulation: "+averageTime/(D1.size()+D2.size()));
 	System.out.println("car with longest time in the simulation: "+longestTime);
     }
