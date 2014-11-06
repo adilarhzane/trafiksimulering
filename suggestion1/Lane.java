@@ -1,9 +1,10 @@
+import java.lang.*;
+
 public class Lane {
 
-    public static class OverflowException extends RuntimeException {
+    public static class CarOverflowException extends RuntimeException {
         // Undantag som kastas när det inte gick att lägga 
         // in en ny bil på vägen
-        
     }
 
     private Car[] theLane;
@@ -43,12 +44,12 @@ public class Lane {
 	return theLane[theLane.length-1] == null;
     }
 
-    public void putLast(Car c) throws OverflowException {
+    public void putLast(Car c) throws CarOverflowException {
 	// Ställ en bil på sista platsen på vägen
 	// (om det går).
 	if(lastFree()){
 	    theLane[theLane.length -1] = c;
-	}else{throw new OverflowException();}
+	}else{throw new CarOverflowException();}
     }
 
     public String toString() {
