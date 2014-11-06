@@ -120,6 +120,6 @@ public class Trafficsystem {
     public void print() {
 	// Skriv ut en grafisk representation av kösituationen
 	// med hjälp av klassernas toString-metoder
-	System.out.println(r1.toString() + r0.toString() + "\n" + r2.toString());
+	System.out.println(s1.toString() +r1.toString() + r0.toString() + "\n" + s2.toString()+r2.toString()+"\n");
     }
 }

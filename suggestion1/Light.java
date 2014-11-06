@@ -22,7 +22,8 @@ public class Light {
 	    return true;
 	}else {return false;}
     }
-
-    public String  toString()  {return "\n The clock period of the traffic light is: "+period + ".\n And the Light is green when timer is less than: " + green + " seconds.";}
+    
+    public String  toString()  {if(this.isGreen()){return "[G]";}else{return "[R]";}
 	
+    }
 }

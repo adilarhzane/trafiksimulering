@@ -14,7 +14,7 @@ public class Car {
 	return bornTime;
     }
     public String toString() {
-	return "(:"+bornTime+"Towards D"+dest+":]";
+	return "(: entered: "+bornTime+". Destination: "+dest+". :]";
     }
     
 }

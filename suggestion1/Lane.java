@@ -55,7 +55,7 @@ public class Lane {
 	for(int i=0;i<theLane.length; i++){
 	    if(theLane[i] == null){
 		s+="-";
-	    }else{s+="O";}
+	    }else{s+= "O";}
 	}
 	s+="<";
 	return s;
