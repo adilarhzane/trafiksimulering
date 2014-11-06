@@ -16,7 +16,7 @@ public class Simulation {
 	int i = 0;
 	boolean j = true;
 	
-	while(j){
+  loop:	while(j){
 	    try{
 		switch(i){
 		case 0: System.out.println("How many seconds would you like to run the simulation?");
@@ -26,34 +26,34 @@ public class Simulation {
 		    System.out.println("Enter car spawn intensity: ");
 		    intensity = Integer.parseInt(scanner.nextLine());
 		    i++;
-		    break;
+		    
 		case 2: 
 		    System.out.println("Enter period: ");
 		    period = Integer.parseInt(scanner.nextLine());
 		    i++;
-		    break;
+		    
 		case 3: 
 		    System.out.println("Enter green time: ");
 		    greenTime = Integer.parseInt(scanner.nextLine());
 		    i++;
-		    break;
+		    
 		case 4:
 		    System.out.println("Enter the length of the runup road: ");
 		    r0 = Integer.parseInt(scanner.nextLine());
 		    i++;
-		    break;
+		    
 		case 5:
 		    System.out.println("Enter length of svängfil: ");
 		    r2 = Integer.parseInt(scanner.nextLine());
 		    r1 = r2;
 		    i++;
-		    break;
+		    
 		case 6: 
 		    System.out.println("The simulation is starting in:");
 		    System.out.println("\n      3");
 		    System.out.println("\n      2");
 		    System.out.println("\n      1");
-		    i++;
+		    break loop;
 		    
 		}	
 	
@@ -69,7 +69,7 @@ public class Simulation {
 	       
 	    }
 
-	    
+	    break;
 	}
 	Trafficsystem s = new Trafficsystem(r0, r1, period, greenTime, intensity);
 	for(int o = 0;o<cycles;o++){

@@ -3,6 +3,7 @@ public class Lane {
     public static class OverflowException extends RuntimeException {
         // Undantag som kastas när det inte gick att lägga 
         // in en ny bil på vägen
+	System.out.println("Simulation failed. The lane is full, try running a new simulation with different parameters");
     }
 
     private Car[] theLane;
