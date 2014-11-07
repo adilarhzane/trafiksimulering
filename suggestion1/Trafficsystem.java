@@ -31,14 +31,14 @@ public class Trafficsystem {
     //
    
 
-    public Trafficsystem(int r0, int r1, int period, int greenTime,  int intensity) {
+    public Trafficsystem(int r0, int r1, int period, int greenTime, int greenTime2,  int intensity) {
 	//lanes
 	this.r0 = new Lane(r0);
 	this.r1 = new Lane(r1);
 	this.r2 = new Lane(r1);
 	//lights
 	this.s1 = new Light(period, greenTime);
-	this.s2 = new Light(period/2, greenTime/3);
+	this.s2 = new Light(period, greenTime2);
 	this.intensity = intensity;
 	this.longestTime = 0;
 	this.averageTime = 0;
@@ -104,20 +104,17 @@ public class Trafficsystem {
 
     public void printStatistics() {
 	// Skriv statistiken samlad så här långt
-	System.out.println("this is statistic");
 	System.out.println("Cars that went straight: ");
-	for(Car c: D1){
-	    System.out.println(c.toString());
-	}
+	System.out.println(D1.size());
+
 	System.out.println("Cars that went left: ");
-	for(Car c: D2){
-	    System.out.println(c.toString());
-	}
+	System.out.println(D2.size());
+
 	if(D1.size() == 0 && D2.size() == 0){
 	    System.out.println("no car made it throught the system.");
 	}else{
 	    System.out.println("Average time in the simulation: "+averageTime/(D1.size()+D2.size()));
-	    System.out.println("car with longest time in the simulation: "+longestTime);
+	    System.out.println("Longest time in the simulation: "+longestTime);
 	}
 	
 
