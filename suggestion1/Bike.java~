@@ -1,0 +1,5 @@
+public class Bike{
+    public string toString(){
+	return "B";
+    }
+}

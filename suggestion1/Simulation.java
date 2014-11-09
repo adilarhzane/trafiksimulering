@@ -16,9 +16,33 @@ public class Simulation {
 	}
 	return a;
     }
+      public static int  car_or_bike(Scanner scanner){
+	  System.out.println("Cars(1) or Bikes(2)?");
+	  int i = Integer.parseInt(scanner.nextLine());
+	  while(true){
+	      try{
+		  if (i == 1 || i == 2){
+		      return i;
+		  }
+		  else{
+		      car_or_bike(scanner);
+		      
+		  }
+		  break;
+	      
+	      }
+	      catch (NumberFormatException e){
+		  System.out.println("Try entering a number");
+		  
+	      }
+	  }
+	  
+	  return i;
+      }
     public static void main(String [] args) {
 	// Skapar ett TrafficSystem
 	// Utför stegningen, anropar utskriftsmetoder
+	int vehicle = 1;
 	int intensity = 3;
 	int period = 10;
 	int greenTime = 6;
@@ -31,9 +55,9 @@ public class Simulation {
 	int i = 0;
 	
 
-		
+	vehicle = car_or_bike(scanner);
 	cycles = readNumber(scanner, "how many cycles?");
-	intensity = readNumber(scanner, "intensity?");
+	intensity = readNumber(scanner, "intensity? (1 car in every X second).");
 	period = readNumber(scanner, "What period would you want to use?");
 	greenTime = readNumber(scanner, "what green time would you want to use for the straight row?");
 	greenTime2 = readNumber(scanner, "What green time would you like to use for the turn lane?");
@@ -46,7 +70,7 @@ public class Simulation {
 	    
 	    
 	
-	Trafficsystem s = new Trafficsystem(r0, r1, period, greenTime, greenTime2, intensity);
+	Trafficsystem s = new Trafficsystem(vehicle,r0, r1, period, greenTime, greenTime2, intensity);
 	for(int o = 0;o<cycles;o++){
 	    s.step();
 	    s.print();
@@ -58,6 +82,7 @@ public class Simulation {
 		}
 
 	}
+	
 	s.printStatistics();
 	
 	

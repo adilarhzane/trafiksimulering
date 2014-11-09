@@ -12,6 +12,9 @@ public class Trafficsystem {
     private Lane  r2;
     private Light s1;
     private Light s2;
+    //Car = 1, Bike = 2;
+    private int vehicle;
+    
     //intensity is used to randomly put cars into the system
     //intensity = 3 means a new car is made randomly about every 4 seconds
     private int intensity;
@@ -25,14 +28,15 @@ public class Trafficsystem {
     // destinationer...)
 
     // Diverse attribut för statistiksamling
-    public ArrayList<Car> D1 = new ArrayList<Car>();
-    public ArrayList<Car> D2 = new ArrayList<Car>();
+    public ArrayList<Fordon> D1 = new ArrayList<Fordon>();
+    public ArrayList<Fordon> D2 = new ArrayList<Fordon>();
     
     //
    
 
-    public Trafficsystem(int r0, int r1, int period, int greenTime, int greenTime2,  int intensity) {
+    public Trafficsystem(int vehicle, int r0, int r1, int period, int greenTime, int greenTime2,  int intensity) {
 	//lanes
+	this.vehicle = vehicle;
 	this.r0 = new Lane(r0);
 	this.r1 = new Lane(r1);
 	this.r2 = new Lane(r1);
@@ -55,14 +59,23 @@ public class Trafficsystem {
 	//Terminal-input metoden
 	return null;
     }
+    //not sure this function should be here or in Simulation.
+  
     
-
     public void createCar(){
 	Random rand = new Random();
 	int randInt = rand.nextInt(intensity);
 	if (randInt == 0){
 	    Car newCar = new Car(time, rand.nextInt(2)+1);
 	    r0.putLast(newCar);
+	}
+    }
+    public void createBike(){
+	Random rand = new Random();
+	int randInt = rand.nextInt(intensity);
+	if (randInt == 0){
+	    Bike newBike = new Bike(time, rand.nextInt(2)+1);
+	    r0.putLast(newBike);
 	}
     }
 
@@ -98,23 +111,30 @@ public class Trafficsystem {
 	    r1.putLast(r0.getFirst());
 	}
 	r0.step();
-	this.createCar();
+	if(vehicle == 1){
+	    this.createCar();
+	} else{this.createBike();}
 	this.time++;
     }
 
     public void printStatistics() {
 	// Skriv statistiken samlad så här långt
-	System.out.println("Cars that went straight: ");
-	System.out.println(D1.size());
 
-	System.out.println("Cars that went left: ");
-	System.out.println(D2.size());
 
 	if(D1.size() == 0 && D2.size() == 0){
-	    System.out.println("no car made it throught the system.");
+	    System.out.println("no vehicle made it throught the system. Try increasing the time of the simulation");
 	}else{
-	    System.out.println("Average time in the simulation: "+averageTime/(D1.size()+D2.size()));
-	    System.out.println("Longest time in the simulation: "+longestTime);
+	    System.out.println("Average time in the simulation: "+averageTime/(D1.size()+D2.size())+"\n");
+	    System.out.println("Longest time in the simulation: "+longestTime+"\n");
+	    System.out.println("Vehicles that went straight: ");
+	    System.out.println(D1.size()+"\n");
+	    
+	    System.out.println("Vehicles that went left: ");
+	    System.out.println(D2.size()+"\n");
+	    System.out.println("Total amount of vehicles that finished the simulation: ");
+	    System.out.println(D2.size() + D1.size() +"\n");
+	    int carsLeft = r0.carsLeft() + r1.carsLeft() + r2.carsLeft();
+	    System.out.println("Vehicles still in the system: " + carsLeft + "\n");
 	}
 	
 
