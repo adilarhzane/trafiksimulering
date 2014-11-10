@@ -8,5 +8,6 @@ abstract class Fordon{
     public int returnDest(){
 	return dest;
     }
+
     
 }
