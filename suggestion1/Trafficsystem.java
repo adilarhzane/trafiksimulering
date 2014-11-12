@@ -1,6 +1,9 @@
 import java.util.*;
 import java.io.*;
-
+/**
+ * Trafficsystem is a system that combines the classes Fordon, Light, Lane. 
+ * Trafficsystem runs the whole simulation but needs to be told what to do and when.
+ */
 public class Trafficsystem {
     // Definierar de vägar och signaler som ingår i det 
     // system som skall studeras.
@@ -28,12 +31,28 @@ public class Trafficsystem {
     // destinationer...)
 
     // Diverse attribut för statistiksamling
+    /**
+     * D1 is the end state of vehicles that finished to trafficsystem and had dest = 1.
+     */
     public ArrayList<Fordon> D1 = new ArrayList<Fordon>();
+    /**
+     *D2 is the end state of vehicles that finished the trafficsystem and had dest = 2.
+     */
     public ArrayList<Fordon> D2 = new ArrayList<Fordon>();
     
     //
-   
-
+    /**
+     * creates a trafficSystem, the user is allowed to enter the length of lanes greentimes and light intervals to study a traffic situation.
+     * @param vehicle is 1 if we want create a system using cars and is 2 if we use Bikes.
+     * @param r0 the length of lane r0.
+     * @param r1 the length of lane r1 and lane r2, since they have the same length.
+     * @param period the time interval of the lights.
+     * @param greenTime as long as the time counter is less than greenTime the light will be green (the straight lane).
+     * @param greenTime2 same as greenTime except this is the greentime for the second light (the left turn lane).
+     * @param intensity the createCar and createBike method uses intensity to know how often a vehicle should be added to the system, 1 vehicle every X step.
+     * For example intensity = 3 and 90 ticks would spawn about 30 cars. since it uses Random it's mostly not axactly 30.
+     * @return a Trafficsystem object.
+     */
     public Trafficsystem(int vehicle, int r0, int r1, int period, int greenTime, int greenTime2,  int intensity) {
 	//lanes
 	this.vehicle = vehicle;
@@ -48,20 +67,12 @@ public class Trafficsystem {
 	this.averageTime = 0;
     }
 
-    public ReadString readParameters() {
-	// Läser in parametrar för simuleringen
-	// Metoden kan läsa från terminalfönster, dialogrutor
-	// eller från en parameterfil. Det sista alternativet
-	// är att föredra vid uttestning av programmet eftersom
-	// man inte då behöver mata in värdena vid varje körning.
-        // Standardklassen Properties är användbar för detta. 
-
-	//Terminal-input metoden
-	return null;
-    }
-    //not sure this function should be here or in Simulation.
-  
-    
+    /**
+     * Creates a car and puts it in the last position of the lane.
+     * Using Random to make the simulation more real. The intensity of car spawn is entered by the user but since it's random it will almost never be exact.
+     * Intensity works as follows, intensity x = 3, a car will be spawned approximately every 3 seconds.
+     */
+ 
     public void createCar(){
 	Random rand = new Random();
 	int randInt = rand.nextInt(intensity);
@@ -70,6 +81,12 @@ public class Trafficsystem {
 	    r0.putLast(newCar);
 	}
     }
+    /**
+     * Creates a Bike and puts it in the last position of the lane. 
+     * Using Random to make the simulation more real. The intensity of bike spawn is entered by the user but since it's random it will almost never be exact.
+     * Intensity works as follows, intensity x = 3, a bike will be spawned approximately every 3 seconds.
+     */
+    
     public void createBike(){
 	Random rand = new Random();
 	int randInt = rand.nextInt(intensity);
@@ -78,7 +95,10 @@ public class Trafficsystem {
 	    r0.putLast(newBike);
 	}
     }
-
+    /**
+     * Steps every object in the right order: Lights, Lanes and then it uses createBike or createCar.
+     * If a vehicle exits lanes: r1 or r2, it will be put in its end state(D1 or D2) depending on which destination it has.
+     */
     public void step() {
 	// Stega systemet ett tidssteg m h a komponenternas step-metoder
 	// Skapa bilar, lägg in och ta ur på de olika Lane-kompenenterna
@@ -116,6 +136,9 @@ public class Trafficsystem {
 	} else{this.createBike();}
 	this.time++;
     }
+    /**
+     *Prints the statistics that has been calculated this far. Average time, Longest time, vehicles left, and how many vehicles went straight/left.
+     */
 
     public void printStatistics() {
 	// Skriv statistiken samlad så här långt
@@ -139,6 +162,9 @@ public class Trafficsystem {
 	
 
     }
+    /**
+     *Prints the representation of the traffic situation using the Lane.toString method.
+     */
 
     public void print() {
 	// Skriv ut en grafisk representation av kösituationen

@@ -1,7 +1,17 @@
 import java.util.*;
 import java.io.*;
+
+/**
+ * Simulation Runs the traffic simulation by taking inputs, creating a trafficsystem using the trafficsystem constructor.
+ * Then it just runs the given amount of steps and prints the system after each step.
+ */
 public class Simulation {
-    //GET REKT
+    /**
+     * shows a given message and returns user input
+     * @param scanner By requiering a scanner parameter we do not need to create a new scanner every time we run the function.
+     * @param message a string message that is meant to ask for a specific number input.
+     * @return the int number given by the user.
+     */
     public static int readNumber(Scanner scanner, String message){
 	int a;
 	while(true){
@@ -16,6 +26,11 @@ public class Simulation {
 	}
 	return a;
     }
+    /**
+     * Lets the user enter 1 or 2, which represents what vehicle we want to run the simulation with.
+     * @param scanner By requiering scanner as an input we do not need to create a new scanner every time.
+     * @return int 1 or 2, where 1 = Car and 2 = Bike.
+     */
       public static int  car_or_bike(Scanner scanner){
 	  System.out.println("Cars(1) or Bikes(2)?");
 	  int i = Integer.parseInt(scanner.nextLine());
@@ -39,6 +54,9 @@ public class Simulation {
 	  
 	  return i;
       }
+    /**
+     * The main function takes user input and uses the inputs to create a trafficsystem which is stepped as many times as the user wants.
+     */
     public static void main(String [] args) {
 	// Skapar ett TrafficSystem
 	// Utför stegningen, anropar utskriftsmetoder
@@ -57,7 +75,7 @@ public class Simulation {
 
 	vehicle = car_or_bike(scanner);
 	cycles = readNumber(scanner, "how many cycles?");
-	intensity = readNumber(scanner, "intensity? (1 car in every X second).");
+	intensity = readNumber(scanner, "intensity? (1 vehicle in every X second).");
 	period = readNumber(scanner, "What period would you want to use?");
 	greenTime = readNumber(scanner, "what green time would you want to use for the straight row?");
 	greenTime2 = readNumber(scanner, "What green time would you like to use for the turn lane?");

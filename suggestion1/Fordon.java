@@ -1,10 +1,17 @@
-abstract class Fordon{
+/**
+ * Fordon is the super class of all vehicles, it contains the basic methods and variables that a subclass wants.
+ * 
+ */
+
+public abstract class Fordon{
     /**
-     *BornTime is the time a vehicle enters a simulation.
-     *dest is the destination of a vehicle.
+     * BornTime is the time a vehicle enters a simulation.
      */
 
     int bornTime;
+    /**
+     * dest is the destination of a vehicle.
+     */
     int dest;
     /**
      * returns the bornTime of vehicle.
@@ -22,6 +29,7 @@ abstract class Fordon{
     public int returnDest(){
 	return dest;
     }
+    public abstract String toString();
 
     
 }
