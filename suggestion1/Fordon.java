@@ -29,6 +29,9 @@ public abstract class Fordon{
     public int returnDest(){
 	return dest;
     }
+    /**
+     * returns a string representation of a Fordon. 
+     */
     public abstract String toString();
 
     
