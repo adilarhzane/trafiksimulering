@@ -1,0 +1,22 @@
+import org.junit.* ;
+import static org.junit.Assert.* ;
+
+
+public class BikeTest {
+    Car testBike = new Bike(12,1);
+    @Test 
+    public void TestgetDest(){	
+	assertTrue(testBike.returnDest() == 1);
+	
+    }
+    @Test
+    public void TestgetBornTime(){
+	assertTrue(testCar.returnBornTime() == 12);
+    }
+    @test
+    public void TestToString(){
+	assertTrue(testBike.toString() == "B");
+    }
+    
+
+}

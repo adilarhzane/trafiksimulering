@@ -1,0 +1,21 @@
+import org.junit.* ;
+import static org.junit.Assert.* ;
+
+
+public class CarTest {
+    Car testCar = new Car(40, 2);
+    @Test 
+    public void TestReturnDest(){	
+	assertTrue(testCar.returnDest() == 2);
+	
+    }
+    @Test
+    public void TestgetBornTime(){
+	assertTrue(testCar.returnBornTime() == 40);
+    }
+    @test
+    public void TestToString(){
+	assertTrue(testCar.toString() == "O");
+    }
+    
+}

@@ -51,7 +51,6 @@ public class Trafficsystem {
      * @param greenTime2 same as greenTime except this is the greentime for the second light (the left turn lane).
      * @param intensity the createCar and createBike method uses intensity to know how often a vehicle should be added to the system, 1 vehicle every X step.
      * For example intensity = 3 and 90 ticks would spawn about 30 cars. since it uses Random it's mostly not axactly 30.
-     * @return a Trafficsystem object.
      */
     public Trafficsystem(int vehicle, int r0, int r1, int period, int greenTime, int greenTime2,  int intensity) {
 	//lanes

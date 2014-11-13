@@ -24,7 +24,12 @@ public class Simulation {
 		
 	    }
 	}
+	if(a<0){
+		System.out.println("No numbers less than 0"); 
+		readNumber(scanner, "lets try again, "+message);
+		}
 	return a;
+	
     }
     /**
      * Lets the user enter 1 or 2, which represents what vehicle we want to run the simulation with.

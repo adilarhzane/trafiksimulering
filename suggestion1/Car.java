@@ -20,11 +20,11 @@ public class Car extends Fordon{
     }
 /**
  * returns the string representation of a car.
- *@return string representing Car.
+ *@return string representing car.
  */
 
     public  String toString() {
 	return "O";
     }
-    
+    //hello me is jocke
 }
