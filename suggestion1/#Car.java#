@@ -4,7 +4,6 @@
  * bornTime is the time a Car is created, dest is its destitanion
  * 
  */
-
 public class Car extends Fordon{
 
 /**

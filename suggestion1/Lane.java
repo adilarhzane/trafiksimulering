@@ -1,5 +1,8 @@
 import java.lang.*;
 
+/**
+ * Class Lane creates a lane with length n
+ */
 public class Lane {
 
     public static class OverflowException extends RuntimeException {
@@ -9,13 +12,20 @@ public class Lane {
 
     private Fordon[] theLane;
 
+    /**
+     * Creates a new Lane object with the size for n veichles
+     *@param n Specifies the number of veichles possible on the lane
+     */
+
     public Lane(int n) {
 	// Konstruerar ett Lane-objekt med plats för n fordon
 	theLane = new Fordon[n];
     }
     
     
-    
+    /**
+     *Moves all the veichles on the lane, except the first veichle on the lane, one step forward if possible
+     */
     public void step() {
 	// Stega fram alla fordon (utom det på plats 0) ett steg 
         // (om det går). (Fordonet på plats 0 tas bort utifrån 
@@ -27,6 +37,11 @@ public class Lane {
 	    }
 	}
     }
+
+    /**
+     *Checks how many cars are left in the specific lane chosen
+     *@return An array of type Car
+     */
     public int carsLeft(){
 	int cars = 0;
 	for(int o = 0;o<theLane.length;o++){
@@ -39,7 +54,10 @@ public class Lane {
 	
 	return cars;
     }
-
+    /**
+     *Returns the vehicle in the first position in the lane and removes it from the lane
+     *@return An object of type Fordon
+     */
     public Fordon getFirst() {
 	// Returnera och tag bort bilen som står först
 	Fordon firstCar = theLane[0];
@@ -47,17 +65,28 @@ public class Lane {
 	return firstCar;
     }
 
+    /**
+     * Returns the first veichel in the lane, without removing in from the lane
+     *@return An object of type Fordon
+     */
     public Fordon firstCar() {
 	// Returnera bilen som står först utan att ta bort den
 	return theLane[0];
     }
 
-
+    /**
+     * Checks if the last position in the lane is free
+     * @return true or false
+     */
     public boolean lastFree() {
 	// Returnera true om sista platsen ledig, annars false
 	return theLane[theLane.length-1] == null;
     }
 
+    /**
+     * Puts a Car in the last position in a lane
+     *@param c c is of type Fordon
+     */
     public void putLast(Fordon c) throws OverflowException {
 	// Ställ en bil på sista platsen på vägen
 	// (om det går).
@@ -65,6 +94,11 @@ public class Lane {
 	    theLane[theLane.length -1] = c;
 	}else{throw new OverflowException();}
     }
+
+    /**
+     *returns the string representation of Lane, creates the road which cars or bikes travels on
+     *@return string representing Lane
+     */
 
     public String toString() {
 	String s = "<";
