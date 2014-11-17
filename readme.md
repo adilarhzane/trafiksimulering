@@ -8,7 +8,7 @@ The program has a make file that helps the user with building the program.
     - Open terminal
     - Make sure that the current location is the directory trafiksimulation/.
     - Simply write make.
-    - the program is built, run it by entering java Simulation.
+    - the program is built, run it by entering: java Simulation.
 
 * How you use the program.
     - After running the program the user is asked to chose what vehicle will be used in the simulation.

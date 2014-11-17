@@ -1,4 +1,5 @@
 JC = javac
+JVM = java
 .SUFFIXES: .java .class
 .java.class:
 	$(JC) $*.java
@@ -13,5 +14,8 @@ CLASSES = Fordon.java \
 default: classes
 
 classes: $(CLASSES:.java=.class)
+
+
 clean: 
 	$(RM) *.class
+
