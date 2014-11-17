@@ -10,17 +10,16 @@ The program has a make file that helps the user with building the program.
     - Simply write make.
     - the program is built, run it by entering: java Simulation.
 
-* How you use the program.
-    - After running the program the user is asked to chose what vehicle will be used in the simulation.
-This does not change anything important in the program, just the graphical representation.
-     - Next the user gets to chose wetherhe/she wants use default settings or advanced.
+* How to use the program.
+     - After running the program the user is asked to chose what vehicle will be used in the simulation. This does not change anything important in the program, just the graphical representation.
+     - Next the user gets to chose to use default settings or advanced.
      - If the user wants advanced settings, there are a few concepts that might need to be explained..
 
-     - one cycle is one step in the simulation(default settings uses 100 cycles).
-     - the intensity is not 100% accurate, since they occur randomly to  make the simulation more realistic.
-     - Period is thetime intervad for the traffic lights.
-     - green time is the time the lights are green, light is green if green time is less than the timer, which loops according to the period.
-     - The length of a lane is equal to how far a vehicle travels each step, for instance, a car can drive at most 10 length units in 10 steps.
+       - one cycle is one step in the simulation(default settings uses 100 cycles).
+       - the intensity is not 100% accurate, since they occur randomly to  make the simulation more realistic.
+       - Period is thetime intervad for the traffic lights.
+       - green time is the time the lights are green, light is green if green time is less than the timer, which loops according to the period.
+       - The length of a lane is equal to how far a vehicle travels each step, for instance, a car can drive at most 10 length units in 10 steps.
      
 * Goals completed with this program
   - A2
@@ -38,7 +37,7 @@ This does not change anything important in the program, just the graphical repre
   - implementing more vehicles.
   - Being able to use default settings for fast and easy runs.
 
-*Extensions that could be done
--Real graphics.
--Some kind of file input.
--File output(getting use of results).
+* Extensions that could be done
+  - Real graphics.
+  - Some kind of file input.
+  - File output(getting use of results).
