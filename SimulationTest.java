@@ -2,10 +2,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import java.io.*;
 import java.util.Scanner;
-import org.junit.rules.ExpectedException;
+
 
 public class SimulationTest {
-
+	//this function allows any number input, character input is take care of by asking the user to try again, which is hard to test.
 	@Test
 	public void Test_readNumber() {
 		ByteArrayInputStream in = new ByteArrayInputStream("100".getBytes());
@@ -14,7 +14,7 @@ public class SimulationTest {
 		assertEquals("test: scanner = 100",
 				(Simulation.readNumber(scanner, "")), 100);
 	}
-
+	//the cases where we get other inputs are handeled the way that you get to try again, that is hard to test.	
 	@Test
 	public void Test_choose_1or2() {
 		ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());

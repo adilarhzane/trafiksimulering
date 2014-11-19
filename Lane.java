@@ -6,7 +6,12 @@ public class Lane {
 	public static class OverflowException extends RuntimeException {
 		// Undantag som kastas när det inte gick att lägga
 		// in en ny bil på vägen
-
+		public OverflowException(){
+			super();
+		}
+		public OverflowException(String message){
+			System.out.println(message);
+		}
 	}
 
 	private Fordon[] theLane;

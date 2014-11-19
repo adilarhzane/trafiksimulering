@@ -51,18 +51,13 @@ public class Simulation {
 		int i = 2;
 		try {
 			i = Integer.parseInt(scanner.nextLine());
-			try {
-				if (i == 1 || i == 2) {
-					return i;
-				} else {
-					System.out.println("must be 1 or 2");
-					return choose_1or2(scanner);
 
-				}
-
-			} catch (NumberFormatException e) {
-				// print fel medfelalnde
+			if (i == 1 || i == 2) {
+				return i;
+			} else {
+				System.out.println("must be 1 or 2");
 				return choose_1or2(scanner);
+
 			}
 
 		} catch (NumberFormatException e) {

@@ -9,6 +9,13 @@ CLASSES = Fordon.java \
 	Lane.java \
 	Trafficsystem.java \
 	Simulation.java
+TCLASSES = CarTest.java \
+	BikeTest.java \
+	LightTest.java \
+	LaneTest.java \
+	TrafficsystemTest.java \
+	SimulationTest.java \
+	allTests.java
 
 default: classes
 
