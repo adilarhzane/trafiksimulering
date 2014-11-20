@@ -5,19 +5,19 @@ Description of the program trafiksimulering
 
 * How to build and run the program
 The program has a make file that helps the user with building the program.
-    - Open terminal
+    - Open the program: terminal
     - Make sure that the current location is the directory trafiksimulation/.
     - Simply write make.
-    - the program is built, run it by entering: java Simulation.
+    - the program is now built, run it by writing in the terminal: java Simulation.
 
 * How to use the program.
-     - After running the program the user is asked to chose what vehicle will be used in the simulation. This does not change anything important in the program, just the graphical representation.
+     - After running the program the user is asked to choose which vehicle that will be used in the simulation. This does not change anything important in the program, just the graphical representation.
      - Next the user gets to chose to use default settings or advanced.
      - If the user wants advanced settings, there are a few concepts that might need to be explained..
 
-       - one cycle is one step in the simulation(default settings uses 100 cycles).
-       - the intensity is not 100% accurate, since they occur randomly to  make the simulation more realistic.
-       - Period is thetime intervad for the traffic lights.
+       - One cycle is one step in the simulation(default settings uses 100 cycles).
+       - The intensity is not 100% accurate, since they occur randomly to  make the simulation more realistic.
+       - period is the time interval for the traffic lights.
        - green time is the time the lights are green, light is green if green time is less than the timer, which loops according to the period.
        - The length of a lane is equal to how far a vehicle travels each step, for instance, a car can drive at most 10 length units in 10 steps.
      
